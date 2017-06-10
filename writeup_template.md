@@ -51,27 +51,26 @@ The result of these steps are shown below:
 ![alt text][image7]
 
 
+In order to draw a single line on the left and right lanes, I modified the draw_lines() function by:
+* First identify the gradient of the line to know the left and right lanes
+* Remove the horizontal lines
+* Get the average gradient of the lines
+* Get the average of the lines and use them to find the top and bottom lines for extrapolation
+* Call open CV line() function to draw the line.
 
-
-
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
-![alt text][image1]
 
 
 ### 2. Identify potential shortcomings with your current pipeline
 
 
-One potential shortcoming would be what would happen when ... 
+One potential shortcoming would be what would happen when another vehicle enters the region of interest the pipeline might detect this as a line. Another potential shortcomming is if we enter a box junction our pipeline would probably fall over and not accurately detect the lanes and discard the box junction.
 
-Another shortcoming could be ...
+The extrapolation of the lane lines to make a continuous also proved to not be optimal. The lines were jittery escpecially when approaching a curve.
+
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+An improvement to the current pipeline would be to introduce curves and not just straight lines. 
 
-Another potential improvement could be to ...
+Another potential improvement could be to be able to follow lane lines without markers. Some roads might not have any lane markings but our algorithm should be able to follow the road
